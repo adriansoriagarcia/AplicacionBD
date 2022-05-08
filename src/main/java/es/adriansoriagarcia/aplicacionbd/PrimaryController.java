@@ -19,6 +19,8 @@ public class PrimaryController implements Initializable{
     @FXML
     private TableView<Emple> tableViewEmpleados;
     @FXML
+    private TableColumn<Emple, Short> columnNumEmple;
+    @FXML
     private TableColumn<Emple, String> columnNombre;
     @FXML
     private TableColumn<Emple, String> columnApellidos;
@@ -27,6 +29,7 @@ public class PrimaryController implements Initializable{
 
     @Override
     public void initialize(URL url, ResourceBundle rb){
+        columnNumEmple.setCellValueFactory(new PropertyValueFactory<>("empNo"));
         columnNombre.setCellValueFactory(new PropertyValueFactory<>("nombre"));
         columnApellidos.setCellValueFactory(new PropertyValueFactory<>("apellido"));
         columnOficio.setCellValueFactory(new PropertyValueFactory<>("oficio"));

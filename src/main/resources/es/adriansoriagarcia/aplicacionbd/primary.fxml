@@ -28,9 +28,10 @@
    <center>
       <TableView fx:id="tableViewEmpleados" prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
         <columns>
-          <TableColumn fx:id="columnNombre" prefWidth="193.0" text="Nombre" />
-            <TableColumn fx:id="columnApellidos" prefWidth="225.0" text="Apellido" />
-            <TableColumn fx:id="columnOficio" prefWidth="179.0" text="Oficio" />
+            <TableColumn fx:id="columnNumEmple" prefWidth="159.0" text="Nº Emple" />
+          <TableColumn fx:id="columnNombre" prefWidth="137.0" text="Nombre" />
+            <TableColumn fx:id="columnApellidos" minWidth="0.0" prefWidth="195.0" text="Apellido" />
+            <TableColumn fx:id="columnOficio" prefWidth="107.0" text="Oficio" />
         </columns>
       </TableView>
    </center>
