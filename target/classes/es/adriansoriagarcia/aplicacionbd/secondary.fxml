@@ -1,16 +1,100 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.scene.layout.VBox?>
-<?import javafx.scene.control.Label?>
 <?import javafx.scene.control.Button?>
-<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.CheckBox?>
+<?import javafx.scene.control.DatePicker?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.MenuButton?>
+<?import javafx.scene.control.MenuItem?>
+<?import javafx.scene.control.RadioButton?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.control.ToggleGroup?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.layout.VBox?>
 
-<VBox alignment="CENTER" spacing="20.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="es.adriansoriagarcia.aplicacionbd.SecondaryController">
-    <children>
-        <Label text="Secondary View" />
-        <Button fx:id="secondaryButton" text="Switch to Primary View" onAction="#switchToPrimary" />
-    </children>
-    <padding>
-        <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
-    </padding>
-</VBox>
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="500.0" prefWidth="750.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1">
+   <center>
+      <GridPane BorderPane.alignment="CENTER">
+        <columnConstraints>
+            <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+            <ColumnConstraints hgrow="SOMETIMES" maxWidth="304.0" minWidth="10.0" prefWidth="304.0" />
+          <ColumnConstraints hgrow="SOMETIMES" maxWidth="195.0" minWidth="10.0" prefWidth="96.0" />
+        </columnConstraints>
+        <rowConstraints>
+            <RowConstraints maxHeight="42.0" minHeight="0.0" prefHeight="0.0" vgrow="SOMETIMES" />
+            <RowConstraints maxHeight="42.0" minHeight="0.0" prefHeight="0.0" vgrow="SOMETIMES" />
+            <RowConstraints maxHeight="42.0" minHeight="0.0" prefHeight="0.0" vgrow="SOMETIMES" />
+          <RowConstraints minHeight="0.0" prefHeight="0.0" vgrow="SOMETIMES" />
+          <RowConstraints maxHeight="42.0" minHeight="0.0" prefHeight="0.0" vgrow="SOMETIMES" />
+          <RowConstraints maxHeight="42.0" minHeight="0.0" prefHeight="0.0" vgrow="SOMETIMES" />
+            <RowConstraints maxHeight="42.0" minHeight="0.0" prefHeight="0.0" vgrow="SOMETIMES" />
+            <RowConstraints minHeight="0.0" prefHeight="0.0" vgrow="SOMETIMES" />
+            <RowConstraints minHeight="0.0" prefHeight="0.0" vgrow="SOMETIMES" />
+            <RowConstraints minHeight="0.0" prefHeight="0.0" vgrow="SOMETIMES" />
+            <RowConstraints maxHeight="45.0" minHeight="0.0" prefHeight="0.0" vgrow="SOMETIMES" />
+            <RowConstraints maxHeight="92.0" minHeight="0.0" prefHeight="0.0" vgrow="SOMETIMES" />
+            <RowConstraints maxHeight="194.0" minHeight="10.0" prefHeight="194.0" vgrow="SOMETIMES" />
+        </rowConstraints>
+         <children>
+            <Label text="Nº Emple:" />
+            <Label text="Nombre:" GridPane.rowIndex="1" />
+            <Label text="Apellido:" GridPane.rowIndex="2" />
+            <Label text="Oficio:" GridPane.rowIndex="3" />
+            <Label text="Dir:" GridPane.rowIndex="4" />
+            <Label text="Fecha alta:" GridPane.rowIndex="5" />
+            <Label text="Numero hijos:" GridPane.rowIndex="6" />
+            <Label text="Estado civil:" GridPane.rowIndex="7" />
+            <Label text="Salario:" GridPane.rowIndex="8" />
+            <Label text="Comisión:" GridPane.rowIndex="9" />
+            <Label text="Baja:" GridPane.rowIndex="10" />
+            <Label text="Departamento:" GridPane.rowIndex="11" />
+            <Label text="Imágen:" GridPane.rowIndex="12" />
+            <TextField GridPane.columnIndex="1" GridPane.rowIndex="1" />
+            <TextField GridPane.columnIndex="1" GridPane.rowIndex="2" />
+            <TextField GridPane.columnIndex="1" GridPane.rowIndex="3" />
+            <DatePicker GridPane.columnIndex="1" GridPane.rowIndex="5" />
+            <TextField GridPane.columnIndex="1" />
+            <TextField GridPane.columnIndex="1" GridPane.rowIndex="4" />
+            <TextField GridPane.columnIndex="1" GridPane.rowIndex="8" />
+            <TextField GridPane.columnIndex="1" GridPane.rowIndex="9" />
+            <TextField GridPane.columnIndex="1" GridPane.rowIndex="6" />
+            <HBox alignment="CENTER_LEFT" prefHeight="100.0" prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="7">
+               <children>
+                  <RadioButton mnemonicParsing="false" text="Soltero/a">
+                     <toggleGroup>
+                        <ToggleGroup fx:id="estadoCivilGroup" />
+                     </toggleGroup>
+                  </RadioButton>
+                  <RadioButton layoutX="10.0" layoutY="10.0" mnemonicParsing="false" text="Casado/a" toggleGroup="$estadoCivilGroup" />
+                  <RadioButton layoutX="97.0" layoutY="10.0" mnemonicParsing="false" text="Viudo/a" toggleGroup="$estadoCivilGroup" />
+               </children>
+            </HBox>
+            <CheckBox mnemonicParsing="false" text="Si" GridPane.columnIndex="1" GridPane.rowIndex="10" />
+            <Button mnemonicParsing="false" text="Guardar" GridPane.columnIndex="2" />
+            <Button mnemonicParsing="false" text="Cancelar" GridPane.columnIndex="2" GridPane.rowIndex="1" />
+            <HBox prefHeight="100.0" prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="12">
+               <children>
+                  <ImageView fitHeight="187.0" fitWidth="171.0" pickOnBounds="true" preserveRatio="true" />
+                  <VBox prefHeight="194.0" prefWidth="103.0">
+                     <children>
+                        <Button mnemonicParsing="false" text="Examinar" />
+                        <Button layoutX="10.0" layoutY="10.0" mnemonicParsing="false" text="Suprimir foto" />
+                     </children>
+                  </VBox>
+               </children>
+            </HBox>
+            <MenuButton mnemonicParsing="false" text="MenuButton" GridPane.columnIndex="1" GridPane.rowIndex="11">
+              <items>
+                <MenuItem mnemonicParsing="false" text="Action 1" />
+                <MenuItem mnemonicParsing="false" text="Action 2" />
+              </items>
+            </MenuButton>
+         </children>
+      </GridPane>
+   </center>
+</BorderPane>

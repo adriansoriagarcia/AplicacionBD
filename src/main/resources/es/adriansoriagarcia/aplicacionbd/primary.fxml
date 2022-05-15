@@ -18,7 +18,7 @@
          <children>
             <Button fx:id="buttonNuevo" mnemonicParsing="false" text="Nuevo" />
             <Button fx:id="buttonEditar" mnemonicParsing="false" text="Editar" />
-            <Button fx:id="buttonSuprimir" mnemonicParsing="false" text="Suprimir" />
+            <Button fx:id="buttonSuprimir" mnemonicParsing="false" onAction="#onActionButtonSuprimir" text="Suprimir" />
          </children>
          <BorderPane.margin>
             <Insets top="10.0" />
@@ -26,12 +26,13 @@
       </HBox>
    </top>
    <center>
-      <TableView fx:id="tableViewEmpleados" prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
+      <TableView fx:id="tableViewEmpleados" prefHeight="197.0" prefWidth="596.0" BorderPane.alignment="CENTER">
         <columns>
-            <TableColumn fx:id="columnNumEmple" prefWidth="159.0" text="Nº Emple" />
-          <TableColumn fx:id="columnNombre" prefWidth="137.0" text="Nombre" />
-            <TableColumn fx:id="columnApellidos" minWidth="0.0" prefWidth="195.0" text="Apellido" />
-            <TableColumn fx:id="columnOficio" prefWidth="107.0" text="Oficio" />
+            <TableColumn fx:id="columnNumEmple" prefWidth="121.0" text="Nº Emple" />
+          <TableColumn fx:id="columnNombre" prefWidth="127.0" text="Nombre" />
+            <TableColumn fx:id="columnApellidos" minWidth="0.0" prefWidth="129.0" text="Apellido" />
+            <TableColumn fx:id="columnOficio" prefWidth="125.0" text="Oficio" />
+            <TableColumn fx:id="columnNumDepart" maxWidth="466.0" prefWidth="96.0" text="Departamento" />
         </columns>
       </TableView>
    </center>
@@ -47,16 +48,22 @@
           <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
         </rowConstraints>
          <children>
-            <Label text="Nombre:">
+            <Label alignment="CENTER_RIGHT" text="Nombre:">
                <opaqueInsets>
                   <Insets />
-               </opaqueInsets></Label>
+               </opaqueInsets>
+               <GridPane.margin>
+                  <Insets left="70.0" />
+               </GridPane.margin></Label>
             <TextArea fx:id="textAreaNombre" prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="1">
                <GridPane.margin>
                   <Insets />
                </GridPane.margin></TextArea>
-            <Label text="Apellidos:" GridPane.rowIndex="1" />
-            <TextArea fx:id="textAreaApellidos" prefHeight="15.0" prefWidth="431.0" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+            <Label text="Apellidos:" GridPane.rowIndex="1">
+               <GridPane.margin>
+                  <Insets left="70.0" />
+               </GridPane.margin></Label>
+            <TextArea fx:id="textAreaApellidos" prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="1" />
             <Button fx:id="buttonGuardar" mnemonicParsing="false" text="Guardar" GridPane.columnIndex="1" GridPane.rowIndex="2" />
          </children>
          <padding>
