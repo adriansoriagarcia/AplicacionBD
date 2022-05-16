@@ -1,10 +1,13 @@
 package es.adriansoriagarcia.aplicacionbd;
 
 import es.adriansoriagarcia.aplicacionbd.entities.Emple;
+import java.io.IOException;
 import java.net.URL;
 import java.util.List;
 import java.util.Optional;
 import java.util.ResourceBundle;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javafx.beans.property.SimpleStringProperty;
 import javafx.collections.FXCollections;
 import javafx.event.ActionEvent;
@@ -112,11 +115,49 @@ public class PrimaryController implements Initializable{
             }
         }else {
             Alert alert = new Alert(Alert.AlertType.INFORMATION);
-            alert.setHeaderText("Debe seleccionar un registro");
             alert.setTitle("Atención");
+            alert.setHeaderText("Debe seleccionar un registro");
             alert.showAndWait();
         }
         
+    }
+    
+    @FXML
+    private void onActionButtonNuevo(ActionEvent event) {
+        try{
+           App.setRoot("secondary");
+           SecondaryController secondaryController = (SecondaryController)App.fxmlLoader.getController(); 
+           empleadoSeleccionado = new Emple();
+           secondaryController.setEmpleado(empleadoSeleccionado);
+        }catch(IOException ex){
+            Logger.getLogger(PrimaryController.class.getName()).log(Level.SEVERE, ex.getMessage(), ex);
+        }
+                
+    }
+    
+    @FXML
+    private void onActionButtonEditar(ActionEvent event) {
+        if(empleadoSeleccionado != null) {
+            try{
+                App.setRoot("secondary");
+                SecondaryController secondaryController = (SecondaryController)App.fxmlLoader.getController(); 
+                empleadoSeleccionado = new Emple();
+                secondaryController.setEmpleado(empleadoSeleccionado);
+            }catch(IOException ex){
+                Logger.getLogger(PrimaryController.class.getName()).log(Level.SEVERE, ex.getMessage(), ex);
+            }
+        } else {
+            Alert alert = new Alert(Alert.AlertType.INFORMATION);
+            alert.setTitle("Atención");
+            alert.setHeaderText("Debe seleccionar un registro");
+            alert.showAndWait();
+        }
+        
+                
+    }
+
+    @FXML
+    private void onActionButtonGuardar(ActionEvent event) {
     }
 
 }
