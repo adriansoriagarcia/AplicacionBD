@@ -141,8 +141,8 @@ public class PrimaryController implements Initializable{
             try{
                 App.setRoot("secondary");
                 SecondaryController secondaryController = (SecondaryController)App.fxmlLoader.getController(); 
-                empleadoSeleccionado = new Emple();
                 secondaryController.setEmpleado(empleadoSeleccionado);
+                System.out.println(empleadoSeleccionado.getEmpNo());
             }catch(IOException ex){
                 Logger.getLogger(PrimaryController.class.getName()).log(Level.SEVERE, ex.getMessage(), ex);
             }
@@ -158,6 +158,19 @@ public class PrimaryController implements Initializable{
 
     @FXML
     private void onActionButtonGuardar(ActionEvent event) {
+        if (empleadoSeleccionado != null) {
+            empleadoSeleccionado.setNombre(textAreaNombre.getText());
+            empleadoSeleccionado.setApellido(textAreaApellidos.getText());
+            App.em.getTransaction().begin();
+            App.em.merge(empleadoSeleccionado);
+            App.em.getTransaction().commit();
+            
+            int numFilaSeleccionada = tableViewEmpleados.getSelectionModel().getSelectedIndex();
+            tableViewEmpleados.getItems().set(numFilaSeleccionada, empleadoSeleccionado);
+            TablePosition pos = new TablePosition(tableViewEmpleados, numFilaSeleccionada, null);
+            tableViewEmpleados.getFocusModel().focus(pos);
+            tableViewEmpleados.requestFocus();
+        }
     }
 
 }
