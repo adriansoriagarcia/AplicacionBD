@@ -16,7 +16,7 @@
 <?import javafx.scene.layout.RowConstraints?>
 <?import javafx.scene.layout.VBox?>
 
-<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="500.0" prefWidth="750.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="es.adriansoriagarcia.aplicacionbd.SecondaryController">
+<BorderPane fx:id="rootSecondary" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="500.0" prefWidth="750.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="es.adriansoriagarcia.aplicacionbd.SecondaryController">
    <center>
       <GridPane BorderPane.alignment="CENTER">
         <columnConstraints>
@@ -78,7 +78,7 @@
             <Button mnemonicParsing="false" onAction="#onActionButtonCancelar" text="Cancelar" GridPane.columnIndex="2" GridPane.rowIndex="1" />
             <HBox prefHeight="100.0" prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="12">
                <children>
-                  <ImageView fitHeight="187.0" fitWidth="171.0" pickOnBounds="true" preserveRatio="true" />
+                  <ImageView fx:id="imageViewFoto" fitHeight="187.0" fitWidth="171.0" pickOnBounds="true" preserveRatio="true" />
                   <VBox prefHeight="194.0" prefWidth="103.0">
                      <children>
                         <Button mnemonicParsing="false" onAction="#onActionButtonExaminar" text="Examinar" />
