@@ -2,10 +2,12 @@
 
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Button?>
+<?import javafx.scene.control.CheckBox?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
 <?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.BorderPane?>
 <?import javafx.scene.layout.ColumnConstraints?>
 <?import javafx.scene.layout.GridPane?>
@@ -14,11 +16,14 @@
 
 <BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="es.adriansoriagarcia.aplicacionbd.PrimaryController">
    <top>
-      <HBox alignment="TOP_CENTER" prefHeight="51.0" prefWidth="593.0" spacing="30.0" BorderPane.alignment="CENTER">
+      <HBox prefHeight="51.0" prefWidth="593.0" spacing="30.0" BorderPane.alignment="CENTER_LEFT">
          <children>
             <Button fx:id="buttonNuevo" mnemonicParsing="false" onAction="#onActionButtonNuevo" text="Nuevo" />
             <Button fx:id="buttonEditar" mnemonicParsing="false" onAction="#onActionButtonEditar" text="Editar" />
             <Button fx:id="buttonSuprimir" mnemonicParsing="false" onAction="#onActionButtonSuprimir" text="Suprimir" />
+            <TextField fx:id="textFieldBuscar" />
+            <Button fx:id="buttonBuscar" mnemonicParsing="false" onAction="#onActionButtonBuscar" text="Buscar Nombre" />
+            <CheckBox fx:id="checkBoxCoincide" mnemonicParsing="false" onAction="#onActionButtonBuscar" text="Coincide" />
          </children>
          <BorderPane.margin>
             <Insets top="10.0" />

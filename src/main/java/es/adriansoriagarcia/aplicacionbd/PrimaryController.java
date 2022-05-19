@@ -16,10 +16,12 @@ import javafx.fxml.Initializable;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.ButtonType;
+import javafx.scene.control.CheckBox;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TablePosition;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextArea;
+import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javax.persistence.Query;
 
@@ -50,6 +52,12 @@ public class PrimaryController implements Initializable{
     private TextArea textAreaApellidos;
     @FXML
     private Button buttonGuardar;
+    @FXML
+    private Button buttonBuscar;
+    @FXML
+    private CheckBox checkBoxCoincide;
+    @FXML
+    private TextField textFieldBuscar;
 
 
     @Override
@@ -170,6 +178,31 @@ public class PrimaryController implements Initializable{
             TablePosition pos = new TablePosition(tableViewEmpleados, numFilaSeleccionada, null);
             tableViewEmpleados.getFocusModel().focus(pos);
             tableViewEmpleados.requestFocus();
+        }
+    }
+
+    @FXML
+    private void onActionButtonBuscar(ActionEvent event) {
+        if (!textFieldBuscar.getText().isEmpty()){
+            if(checkBoxCoincide.isSelected()){
+                Query queryEmpleadoFindAll = App.em.createNamedQuery("Emple.findByNombre");
+                queryEmpleadoFindAll.setParameter("nombre", textFieldBuscar.getText());
+                List<Emple> listEmpleado = queryEmpleadoFindAll.getResultList();
+                tableViewEmpleados.setItems(FXCollections.observableArrayList(listEmpleado));
+            } else {
+                String strQuery = "SELECT * FROM Emple WHERE LOWER(nombre) LIKE ";
+                strQuery += "\'%" + textFieldBuscar.getText().toLowerCase() + "%\'";
+                Query queryEmpleadoLikeNombre = App.em.createNativeQuery(strQuery, Emple.class);
+
+                List<Emple> listEmpleado = queryEmpleadoLikeNombre.getResultList();
+                tableViewEmpleados.setItems(FXCollections.observableArrayList(listEmpleado));
+
+                Logger.getLogger(this.getClass().getName()).log(Level.INFO, strQuery);
+            
+            }
+            
+        } else {
+            cargarTodosEmpleados();
         }
     }
 
