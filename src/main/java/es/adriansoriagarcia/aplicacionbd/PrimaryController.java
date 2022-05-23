@@ -205,6 +205,5 @@ public class PrimaryController implements Initializable{
             cargarTodosEmpleados();
         }
     }
-
 }
     

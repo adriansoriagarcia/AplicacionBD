@@ -13,6 +13,7 @@ import java.sql.DriverManager;
 import java.sql.SQLException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javafx.scene.control.Alert;
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
@@ -36,6 +37,11 @@ public class App extends Application {
             em = emf.createEntityManager();
         }catch (PersistenceException ex){
             Logger.getLogger(App.class.getName()).log(Level.WARNING, ex.getMessage(), ex);
+            Alert alert = new Alert(Alert.AlertType.WARNING);
+            alert.setTitle("Atención");
+            alert.setHeaderText("No se ha podidio abrir la base de datos\n"
+                + "Compruebe que no se encuentra ya abierta la aplicación");
+            alert.showAndWait();
         }
         
         scene = new Scene(loadFXML("primary"), 640, 480);
