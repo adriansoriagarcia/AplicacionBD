@@ -25,9 +25,10 @@ import javax.persistence.PersistenceException;
 public class App extends Application {
 
     private static Scene scene;
-    public static EntityManager em;
+    public static EntityManager em; //Declaracion variable EntityManager
     public static FXMLLoader fxmlLoader;
-
+    
+    //Método para establecer la conexión con la base de datos
     @Override
     public void start(Stage stage) throws IOException {
         
@@ -36,6 +37,7 @@ public class App extends Application {
             EntityManagerFactory emf = Persistence.createEntityManagerFactory("AplicacionBDPU");
             em = emf.createEntityManager();
         }catch (PersistenceException ex){
+            //Muestra los mensajes de error de manera mas eficiente.
             Logger.getLogger(App.class.getName()).log(Level.WARNING, ex.getMessage(), ex);
             Alert alert = new Alert(Alert.AlertType.WARNING);
             alert.setTitle("Atención");
@@ -53,11 +55,12 @@ public class App extends Application {
 //        em.persist(e);
 //        em.getTransaction().commit();
     }
-    
+    //Método para cerrar la conexión con la base de datos
     @Override
     public void stop() throws Exception {
         em.close();
         try{
+            //Cierra la conexion usando "shutdown=true"
            DriverManager.getConnection("jdbc:derby:BDEmpresa;shutdown=true");
         } catch(SQLException ex){
             
